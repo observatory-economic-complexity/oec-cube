@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Schema name="atlas">
-    <Dimension name="Year" type="TimeDimension">
+    <Dimension name="year" type="TimeDimension">
         <Hierarchy hasAll="true" primaryKey="year">
-            <Table name="years" schema="oec" />
-            <Level column="year" name="Year" levelType="TimeYears" type="Numeric" uniqueMembers="true" />
+            <Table name="years" schema="public" />
+            <Level column="year" name="year" levelType="TimeYears" type="Numeric" uniqueMembers="true" />
         </Hierarchy>
     </Dimension>
     <Dimension name="Countries">
-        <Hierarchy hasAll="true" primaryKey="country_id" uniqueKeyLevelName="Country">
-            <Table name="countries" schema="oec" />
-            <Level name="Continent" column="continent_id" nameColumn="continent" uniqueMembers="true" />
-            <Level name="Country" column="country_id" nameColumn="country" uniqueMembers="true" />
+        <Hierarchy hasAll="true" primaryKey="iso3" uniqueKeyLevelName="Country">
+            <Table name="countries" schema="public" />
+            <Level name="Continent" column="continent" nameColumn="continent" uniqueMembers="true" />
+            <Level name="Country" column="iso3" nameColumn="name" uniqueMembers="true" />
         </Hierarchy>
     </Dimension>
-    <Dimension name="HS">
-        <Hierarchy hasAll="true" primaryKey="level3" uniqueKeyLevelName="HS6">
-            <Table name="hs_levels" schema="oec" />
-            <Level name="HS2" column="level1" nameColumn="level1_name" uniqueMembers="true" />
-            <Level name="HS4" column="level2" nameColumn="level2_name" uniqueMembers="true" />
-            <Level name="HS6" column="level3" nameColumn="level3_name" uniqueMembers="true" />
+    <Dimension name="HS07">
+        <Hierarchy hasAll="true" primaryKey="hs6" uniqueKeyLevelName="hs6_name">
+            <Table name="hs07" schema="public" />
+            <Level name="Chapter" column="chapter" nameColumn="chapter_name" uniqueMembers="true" />
+            <Level name="HS2" column="hs2" nameColumn="hs2_name" uniqueMembers="true" />
+            <Level name="HS4" column="hs4" nameColumn="hs4_name" uniqueMembers="true" />
+            <Level name="HS6" column="hs6" nameColumn="hs6_name" uniqueMembers="true" />
         </Hierarchy>
     </Dimension>
-    <Cube name="Trade Flow">
-        <Table name="trade_flow" schema="oec" />
-        <DimensionUsage name="Year" source="Year" foreignKey="year" />
-        <DimensionUsage name="Origin Country" caption="Origin Country" source="Countries" foreignKey="country_origin" />
-        <DimensionUsage name="Destination Country" caption="Destination Country" source="Countries" foreignKey="country_destination" />
-        <DimensionUsage name="Product" source="HS" foreignKey="product_id" />
+    <Cube name="2015_2016_yearly_data">
+        <Table name="2015_2016_yearly_data" schema="public" />
+        <DimensionUsage name="year" source="year" foreignKey="year" />
+        <DimensionUsage name="Origin Country" caption="Origin Country" source="Countries" foreignKey="reporter_iso" />
+        <DimensionUsage name="Destination Country" caption="Destination Country" source="Countries" foreignKey="partner_iso" />
+        <DimensionUsage name="Product" source="HS07" foreignKey="commodity_code" />
 
-        <Measure name="Exports" column="export_value" aggregator="sum" />
-        <Measure name="Imports" column="import_value" aggregator="sum" />
+        <Measure name="Exports" column="export_usd" aggregator="sum" />
+        <Measure name="Imports" column="import_usd" aggregator="sum" />
+        <Measure name="Export_kg" column="export_kg" aggregator="sum" />
+        <Measure name="Import_kg" column="import_kg" aggregator="sum" />
     </Cube>
 </Schema>
