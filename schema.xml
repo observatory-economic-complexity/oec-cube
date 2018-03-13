@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Schema name="atlas">
-    <Dimension name="year" type="TimeDimension">
-        <Hierarchy hasAll="true" primaryKey="year">
-            <Table name="years" schema="public" />
-            <Level column="year" name="year" levelType="TimeYears" type="Numeric" uniqueMembers="true" />
-        </Hierarchy>
-    </Dimension>
     <Dimension name="Countries">
         <Hierarchy hasAll="true" primaryKey="iso3" uniqueKeyLevelName="Country">
             <Table name="countries" schema="public" />
@@ -24,7 +18,13 @@
     </Dimension>
     <Cube name="2015_2016_yearly_data">
         <Table name="2015_2016_yearly_data" schema="public" />
-        <DimensionUsage name="year" source="year" foreignKey="year" />
+
+        <Dimension name="year" type="TimeDimension">
+           <Hierarchy hasAll="true" primaryKey="year">
+               <Level column="year" name="year" levelType="TimeYears" type="Numeric" uniqueMembers="true" />
+           </Hierarchy>
+        </Dimension>
+
         <DimensionUsage name="Origin Country" caption="Origin Country" source="Countries" foreignKey="reporter_iso" />
         <DimensionUsage name="Destination Country" caption="Destination Country" source="Countries" foreignKey="partner_iso" />
         <DimensionUsage name="Product" source="HS07" foreignKey="commodity_code" />
