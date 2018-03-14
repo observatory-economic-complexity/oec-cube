@@ -4,7 +4,10 @@
         <Hierarchy hasAll="true" primaryKey="iso3" uniqueKeyLevelName="Country">
             <Table name="countries" schema="public" />
             <Level name="Continent" column="continent" nameColumn="continent" uniqueMembers="true" />
-            <Level name="Country" column="iso3" nameColumn="name" uniqueMembers="true" />
+            <Level name="Country" column="iso3" nameColumn="name" uniqueMembers="true">
+              <Property column="name_es" name="Country ES"/>
+              <Property column="name_jp" name="Country JP"/>
+            </Level>
         </Hierarchy>
     </Dimension>
     <Dimension name="HS07">
