@@ -19,8 +19,8 @@
             <Level name="HS6" column="hs6" nameColumn="hs6_name" uniqueMembers="true" />
         </Hierarchy>
     </Dimension>
-    <Cube name="2015_2016_yearly_data">
-        <Table name="2015_2016_yearly_data" schema="public" />
+    <Cube name="2015_2016_hs_rev2007_yearly_data">
+        <Table name="2015_2016_hs_rev2007_yearly_data" schema="public" />
 
         <Dimension name="year" type="TimeDimension">
            <Hierarchy hasAll="true" primaryKey="year">
