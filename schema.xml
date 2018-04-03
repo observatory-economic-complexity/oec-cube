@@ -10,7 +10,37 @@
             </Level>
         </Hierarchy>
     </Dimension>
-
+    
+    <Dimension name="HS92">
+        <Hierarchy hasAll="true" primaryKey="hs6" uniqueKeyLevelName="hs6_name">
+            <Table name="hs92" schema="public" />
+            <Level name="Chapter" column="chapter" nameColumn="chapter_name" uniqueMembers="true" />
+            <Level name="HS2" column="hs2" nameColumn="hs2_name" uniqueMembers="false" />
+            <Level name="HS4" column="hs4" nameColumn="hs4_name" uniqueMembers="false" />
+            <Level name="HS6" column="hs6" nameColumn="hs6_name" uniqueMembers="true" />
+        </Hierarchy>
+    </Dimension>
+    
+    <Dimension name="HS96">
+        <Hierarchy hasAll="true" primaryKey="hs6" uniqueKeyLevelName="hs6_name">
+            <Table name="hs96" schema="public" />
+            <Level name="Chapter" column="chapter" nameColumn="chapter_name" uniqueMembers="true" />
+            <Level name="HS2" column="hs2" nameColumn="hs2_name" uniqueMembers="false" />
+            <Level name="HS4" column="hs4" nameColumn="hs4_name" uniqueMembers="false" />
+            <Level name="HS6" column="hs6" nameColumn="hs6_name" uniqueMembers="true" />
+        </Hierarchy>
+    </Dimension>
+    
+    <Dimension name="HS02">
+        <Hierarchy hasAll="true" primaryKey="hs6" uniqueKeyLevelName="hs6_name">
+            <Table name="hs02" schema="public" />
+            <Level name="Chapter" column="chapter" nameColumn="chapter_name" uniqueMembers="true" />
+            <Level name="HS2" column="hs2" nameColumn="hs2_name" uniqueMembers="false" />
+            <Level name="HS4" column="hs4" nameColumn="hs4_name" uniqueMembers="false" />
+            <Level name="HS6" column="hs6" nameColumn="hs6_name" uniqueMembers="true" />
+        </Hierarchy>
+    </Dimension>
+    
     <Dimension name="HS07">
         <Hierarchy hasAll="true" primaryKey="hs6" uniqueKeyLevelName="hs6_name">
             <Table name="hs07" schema="public" />
@@ -18,6 +48,15 @@
             <Level name="HS2" column="hs2" nameColumn="hs2_name" uniqueMembers="false" />
             <Level name="HS4" column="hs4" nameColumn="hs4_name" uniqueMembers="false" />
             <Level name="HS6" column="hs6" nameColumn="hs6_name" uniqueMembers="true" />
+        </Hierarchy>
+    </Dimension>
+    
+    <Dimension name="SITC">
+        <Hierarchy hasAll="true" primaryKey="hs4" uniqueKeyLevelName="hs4_name">
+            <Table name="sitcrev2" schema="public" />
+            <Level name="Chapter" column="chapter" nameColumn="chapter_name" uniqueMembers="true" />
+            <Level name="SITC2" column="sitc2" nameColumn="sitc2_name" uniqueMembers="false" />
+            <Level name="SITC4" column="sitc4" nameColumn="sitc4_name" uniqueMembers="true" />
         </Hierarchy>
     </Dimension>
 
