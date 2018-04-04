@@ -231,7 +231,7 @@
 
         <DimensionUsage name="Origin Country" caption="Origin Country" source="Countries" foreignKey="reporter_iso" />
         <DimensionUsage name="Destination Country" caption="Destination Country" source="Countries" foreignKey="partner_iso" />
-        <DimensionUsage name="Product" source="SITC2" foreignKey="commodity_code" />
+        <DimensionUsage name="Product" source="SITC" foreignKey="commodity_code" />
 
         <Measure name="Exports" column="export_usd" aggregator="sum" />
         <Measure name="Imports" column="import_usd" aggregator="sum" />
@@ -244,7 +244,7 @@
                 (Measures.[Exports], [year].[year].CurrentMember,
         [Origin Country].[Countries].CurrentMember,
         [Destination Country].[Countries].[All Countriess],
-        [Product].[SITC2].[All SITC2s])
+        [Product].[SITC].[All SITCs])
             ]]>
           </Formula>
         </CalculatedMember>
@@ -256,7 +256,7 @@
                 (Measures.[Exports], [year].[year].CurrentMember,
         [Origin Country].[Countries].[All Countriess],
         [Destination Country].[Countries].[All Countriess],
-        [Product].[SITC2].CurrentMember)
+        [Product].[SITC].CurrentMember)
             ]]>
           </Formula>
         </CalculatedMember>
@@ -268,7 +268,7 @@
                 (Measures.[Exports], [year].[year].CurrentMember,
         [Origin Country].[Countries].[All Countriess],
         [Destination Country].[Countries].[All Countriess],
-        [Product].[SITC2].[All SITC2s])
+        [Product].[SITC].[All SITCs])
             ]]>
           </Formula>
         </CalculatedMember>
@@ -861,7 +861,7 @@
 
         <DimensionUsage name="Origin Country" caption="Origin Country" source="Countries" foreignKey="reporter_iso" />
         <DimensionUsage name="Destination Country" caption="Destination Country" source="Countries" foreignKey="partner_iso" />
-        <DimensionUsage name="Product" source="SITC4" foreignKey="commodity_code" />
+        <DimensionUsage name="Product" source="SITC" foreignKey="commodity_code" />
 
         <Measure name="Exports" column="export_usd" aggregator="sum" />
         <Measure name="Imports" column="import_usd" aggregator="sum" />
@@ -874,7 +874,7 @@
                 (Measures.[Exports], [year].[year].CurrentMember,
         [Origin Country].[Countries].CurrentMember,
         [Destination Country].[Countries].[All Countriess],
-        [Product].[SITC4].[All SITC4s])
+        [Product].[SITC].[All SITCs])
             ]]>
           </Formula>
         </CalculatedMember>
@@ -886,7 +886,7 @@
                 (Measures.[Exports], [year].[year].CurrentMember,
         [Origin Country].[Countries].[All Countriess],
         [Destination Country].[Countries].[All Countriess],
-        [Product].[SITC4].CurrentMember)
+        [Product].[SITC].CurrentMember)
             ]]>
           </Formula>
         </CalculatedMember>
@@ -898,7 +898,7 @@
                 (Measures.[Exports], [year].[year].CurrentMember,
         [Origin Country].[Countries].[All Countriess],
         [Destination Country].[Countries].[All Countriess],
-        [Product].[SITC4].[All SITC4s])
+        [Product].[SITC].[All SITCs])
             ]]>
           </Formula>
         </CalculatedMember>
