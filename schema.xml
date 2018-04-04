@@ -424,6 +424,7 @@
     </Cube>
     
     
+    <!--
     <Cube name="2012_2016_hs_rev2012_yearly_data">
         <Table name="2012_2016_hs_rev2012_yearly_data" schema="public" />
 
@@ -490,6 +491,7 @@
         </CalculatedMember>
 
     </Cube>
+    -->
     
     
     <Cube name="2015_2016_hs_rev1992_monthly_data">
@@ -543,7 +545,7 @@
                 (Measures.[Exports], [year].[year].CurrentMember,
         [Origin Country].[Countries].[All Countriess],
         [Destination Country].[Countries].[All Countriess],
-        [Product].[HS12].[All HS92s])
+        [Product].[HS92].[All HS92s])
             ]]>
           </Formula>
         </CalculatedMember>
@@ -614,7 +616,7 @@
                 (Measures.[Exports], [year].[year].CurrentMember,
         [Origin Country].[Countries].[All Countriess],
         [Destination Country].[Countries].[All Countriess],
-        [Product].[HS12].[All HS96s])
+        [Product].[HS96].[All HS96s])
             ]]>
           </Formula>
         </CalculatedMember>
@@ -685,7 +687,7 @@
                 (Measures.[Exports], [year].[year].CurrentMember,
         [Origin Country].[Countries].[All Countriess],
         [Destination Country].[Countries].[All Countriess],
-        [Product].[HS12].[All HS02s])
+        [Product].[HS02].[All HS02s])
             ]]>
           </Formula>
         </CalculatedMember>
@@ -756,7 +758,7 @@
                 (Measures.[Exports], [year].[year].CurrentMember,
         [Origin Country].[Countries].[All Countriess],
         [Destination Country].[Countries].[All Countriess],
-        [Product].[HS12].[All HS07s])
+        [Product].[HS07].[All HS07s])
             ]]>
           </Formula>
         </CalculatedMember>
@@ -776,6 +778,7 @@
     </Cube>
     
     
+    <!--
     <Cube name="2015_2016_hs_rev2012_monthly_data">
         <Table name="2015_2016_hs_rev2012_monthly_data" schema="public" />
 
@@ -845,6 +848,7 @@
         </CalculatedMember>
 
     </Cube>
+    -->
     
     
     <Cube name="2015_2016_sitc_rev2_monthly_data">
