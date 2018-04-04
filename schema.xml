@@ -60,6 +60,7 @@
         </Hierarchy>
     </Dimension>
 
+
     <Cube name="attr_yo">
         <Table name="attr_yo" schema="public" />
 
@@ -81,6 +82,7 @@
         <Measure name="gini" column="gini" aggregator="sum" />
         <Measure name="xgini" column="xgini" aggregator="sum" />
     </Cube>
+    
     
     <Cube name="1992_2016_hs_rev1992_yearly_data">
         <Table name="1992_2016_hs_rev1992_yearly_data" schema="public" />
@@ -149,6 +151,7 @@
 
     </Cube>
     
+    
     <Cube name="1996_2016_hs_rev1996_yearly_data">
         <Table name="1996_2016_hs_rev1996_yearly_data" schema="public" />
 
@@ -215,6 +218,7 @@
         </CalculatedMember>
 
     </Cube>
+    
     
     <Cube name="2000_2016_sitc_rev2_yearly_data">
         <Table name="2000_2016_sitc_rev2_yearly_data" schema="public" />
@@ -283,6 +287,7 @@
 
     </Cube>
     
+    
     <Cube name="2002_2016_hs_rev2002_yearly_data">
         <Table name="2002_2016_hs_rev2002_yearly_data" schema="public" />
 
@@ -349,6 +354,7 @@
         </CalculatedMember>
 
     </Cube>
+    
     
     <Cube name="2015_2016_hs_rev2007_yearly_data">
         <Table name="2015_2016_hs_rev2007_yearly_data" schema="public" />
@@ -417,6 +423,7 @@
 
     </Cube>
     
+    
     <Cube name="2012_2016_hs_rev2012_yearly_data">
         <Table name="2012_2016_hs_rev2012_yearly_data" schema="public" />
 
@@ -466,6 +473,432 @@
         [Origin Country].[Countries].[All Countriess],
         [Destination Country].[Countries].[All Countriess],
         [Product].[HS12].[All HS12s])
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy RCA" visible="true">
+          <Formula>
+            <![CDATA[
+            IIF([Measures].[cpy_rca_c_pop] > 0 and [Measures].[cpy_rca_d_pop] > 0,
+             ([Measures].[Exports] / [Measures].[cpy_rca_b_pop]) /
+             ([Measures].[cpy_rca_c_pop] / [Measures].[cpy_rca_d_pop])
+             , NULL)
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+    </Cube>
+    
+    
+    <Cube name="2015_2016_hs_rev1992_monthly_data">
+        <Table name="2015_2016_hs_rev1992_monthly_data" schema="public" />
+
+        <Dimension name="year" type="TimeDimension">
+           <Hierarchy hasAll="true" primaryKey="year">
+               <Level column="year" name="year" levelType="TimeYears" type="Numeric" uniqueMembers="true" />
+           </Hierarchy>
+           <Hierarchy hasAll="true" primaryKey="month">
+               <Level column="month" name="month" levelType="TimeMonths" type="Numeric" uniqueMembers="true" />
+           </Hierarchy>
+        </Dimension>
+
+        <DimensionUsage name="Origin Country" caption="Origin Country" source="Countries" foreignKey="reporter_iso" />
+        <DimensionUsage name="Destination Country" caption="Destination Country" source="Countries" foreignKey="partner_iso" />
+        <DimensionUsage name="Product" source="HS92" foreignKey="commodity_code" />
+
+        <Measure name="Exports" column="export_usd" aggregator="sum" />
+        <Measure name="Imports" column="import_usd" aggregator="sum" />
+        <Measure name="Export_kg" column="export_kg" aggregator="sum" />
+        <Measure name="Import_kg" column="import_kg" aggregator="sum" />
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_b_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].CurrentMember,
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[HS92].[All HS92s])
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_c_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].[All Countriess],
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[HS92].CurrentMember)
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_d_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].[All Countriess],
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[HS12].[All HS92s])
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy RCA" visible="true">
+          <Formula>
+            <![CDATA[
+            IIF([Measures].[cpy_rca_c_pop] > 0 and [Measures].[cpy_rca_d_pop] > 0,
+             ([Measures].[Exports] / [Measures].[cpy_rca_b_pop]) /
+             ([Measures].[cpy_rca_c_pop] / [Measures].[cpy_rca_d_pop])
+             , NULL)
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+    </Cube>
+    
+    
+    <Cube name="2015_2016_hs_rev1996_monthly_data">
+        <Table name="2015_2016_hs_rev1996_monthly_data" schema="public" />
+
+        <Dimension name="year" type="TimeDimension">
+           <Hierarchy hasAll="true" primaryKey="year">
+               <Level column="year" name="year" levelType="TimeYears" type="Numeric" uniqueMembers="true" />
+           </Hierarchy>
+           <Hierarchy hasAll="true" primaryKey="month">
+               <Level column="month" name="month" levelType="TimeMonths" type="Numeric" uniqueMembers="true" />
+           </Hierarchy>
+        </Dimension>
+
+        <DimensionUsage name="Origin Country" caption="Origin Country" source="Countries" foreignKey="reporter_iso" />
+        <DimensionUsage name="Destination Country" caption="Destination Country" source="Countries" foreignKey="partner_iso" />
+        <DimensionUsage name="Product" source="HS96" foreignKey="commodity_code" />
+
+        <Measure name="Exports" column="export_usd" aggregator="sum" />
+        <Measure name="Imports" column="import_usd" aggregator="sum" />
+        <Measure name="Export_kg" column="export_kg" aggregator="sum" />
+        <Measure name="Import_kg" column="import_kg" aggregator="sum" />
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_b_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].CurrentMember,
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[HS96].[All HS96s])
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_c_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].[All Countriess],
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[HS96].CurrentMember)
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_d_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].[All Countriess],
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[HS12].[All HS96s])
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy RCA" visible="true">
+          <Formula>
+            <![CDATA[
+            IIF([Measures].[cpy_rca_c_pop] > 0 and [Measures].[cpy_rca_d_pop] > 0,
+             ([Measures].[Exports] / [Measures].[cpy_rca_b_pop]) /
+             ([Measures].[cpy_rca_c_pop] / [Measures].[cpy_rca_d_pop])
+             , NULL)
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+    </Cube>
+    
+    
+    <Cube name="2015_2016_hs_rev2002_monthly_data">
+        <Table name="2015_2016_hs_rev2002_monthly_data" schema="public" />
+
+        <Dimension name="year" type="TimeDimension">
+           <Hierarchy hasAll="true" primaryKey="year">
+               <Level column="year" name="year" levelType="TimeYears" type="Numeric" uniqueMembers="true" />
+           </Hierarchy>
+           <Hierarchy hasAll="true" primaryKey="month">
+               <Level column="month" name="month" levelType="TimeMonths" type="Numeric" uniqueMembers="true" />
+           </Hierarchy>
+        </Dimension>
+
+        <DimensionUsage name="Origin Country" caption="Origin Country" source="Countries" foreignKey="reporter_iso" />
+        <DimensionUsage name="Destination Country" caption="Destination Country" source="Countries" foreignKey="partner_iso" />
+        <DimensionUsage name="Product" source="HS02" foreignKey="commodity_code" />
+
+        <Measure name="Exports" column="export_usd" aggregator="sum" />
+        <Measure name="Imports" column="import_usd" aggregator="sum" />
+        <Measure name="Export_kg" column="export_kg" aggregator="sum" />
+        <Measure name="Import_kg" column="import_kg" aggregator="sum" />
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_b_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].CurrentMember,
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[HS02].[All HS02s])
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_c_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].[All Countriess],
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[HS02].CurrentMember)
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_d_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].[All Countriess],
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[HS12].[All HS02s])
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy RCA" visible="true">
+          <Formula>
+            <![CDATA[
+            IIF([Measures].[cpy_rca_c_pop] > 0 and [Measures].[cpy_rca_d_pop] > 0,
+             ([Measures].[Exports] / [Measures].[cpy_rca_b_pop]) /
+             ([Measures].[cpy_rca_c_pop] / [Measures].[cpy_rca_d_pop])
+             , NULL)
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+    </Cube>
+    
+    
+    <Cube name="2015_2016_hs_rev2007_monthly_data">
+        <Table name="2015_2016_hs_rev2007_monthly_data" schema="public" />
+
+        <Dimension name="year" type="TimeDimension">
+           <Hierarchy hasAll="true" primaryKey="year">
+               <Level column="year" name="year" levelType="TimeYears" type="Numeric" uniqueMembers="true" />
+           </Hierarchy>
+           <Hierarchy hasAll="true" primaryKey="month">
+               <Level column="month" name="month" levelType="TimeMonths" type="Numeric" uniqueMembers="true" />
+           </Hierarchy>
+        </Dimension>
+
+        <DimensionUsage name="Origin Country" caption="Origin Country" source="Countries" foreignKey="reporter_iso" />
+        <DimensionUsage name="Destination Country" caption="Destination Country" source="Countries" foreignKey="partner_iso" />
+        <DimensionUsage name="Product" source="HS07" foreignKey="commodity_code" />
+
+        <Measure name="Exports" column="export_usd" aggregator="sum" />
+        <Measure name="Imports" column="import_usd" aggregator="sum" />
+        <Measure name="Export_kg" column="export_kg" aggregator="sum" />
+        <Measure name="Import_kg" column="import_kg" aggregator="sum" />
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_b_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].CurrentMember,
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[HS07].[All HS07s])
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_c_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].[All Countriess],
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[HS07].CurrentMember)
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_d_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].[All Countriess],
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[HS12].[All HS07s])
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy RCA" visible="true">
+          <Formula>
+            <![CDATA[
+            IIF([Measures].[cpy_rca_c_pop] > 0 and [Measures].[cpy_rca_d_pop] > 0,
+             ([Measures].[Exports] / [Measures].[cpy_rca_b_pop]) /
+             ([Measures].[cpy_rca_c_pop] / [Measures].[cpy_rca_d_pop])
+             , NULL)
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+    </Cube>
+    
+    
+    <Cube name="2015_2016_hs_rev2012_monthly_data">
+        <Table name="2015_2016_hs_rev2012_monthly_data" schema="public" />
+
+        <Dimension name="year" type="TimeDimension">
+           <Hierarchy hasAll="true" primaryKey="year">
+               <Level column="year" name="year" levelType="TimeYears" type="Numeric" uniqueMembers="true" />
+           </Hierarchy>
+           <Hierarchy hasAll="true" primaryKey="month">
+               <Level column="month" name="month" levelType="TimeMonths" type="Numeric" uniqueMembers="true" />
+           </Hierarchy>
+        </Dimension>
+
+        <DimensionUsage name="Origin Country" caption="Origin Country" source="Countries" foreignKey="reporter_iso" />
+        <DimensionUsage name="Destination Country" caption="Destination Country" source="Countries" foreignKey="partner_iso" />
+        <DimensionUsage name="Product" source="HS12" foreignKey="commodity_code" />
+
+        <Measure name="Exports" column="export_usd" aggregator="sum" />
+        <Measure name="Imports" column="import_usd" aggregator="sum" />
+        <Measure name="Export_kg" column="export_kg" aggregator="sum" />
+        <Measure name="Import_kg" column="import_kg" aggregator="sum" />
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_b_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].CurrentMember,
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[HS12].[All HS12s])
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_c_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].[All Countriess],
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[HS12].CurrentMember)
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_d_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].[All Countriess],
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[HS12].[All HS12s])
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy RCA" visible="true">
+          <Formula>
+            <![CDATA[
+            IIF([Measures].[cpy_rca_c_pop] > 0 and [Measures].[cpy_rca_d_pop] > 0,
+             ([Measures].[Exports] / [Measures].[cpy_rca_b_pop]) /
+             ([Measures].[cpy_rca_c_pop] / [Measures].[cpy_rca_d_pop])
+             , NULL)
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+    </Cube>
+    
+    
+    <Cube name="2015_2016_sitc_rev2_monthly_data">
+        <Table name="2015_2016_sitc_rev2_monthly_data" schema="public" />
+
+        <Dimension name="year" type="TimeDimension">
+           <Hierarchy hasAll="true" primaryKey="year">
+               <Level column="year" name="year" levelType="TimeYears" type="Numeric" uniqueMembers="true" />
+           </Hierarchy>
+           <Hierarchy hasAll="true" primaryKey="month">
+               <Level column="month" name="month" levelType="TimeMonths" type="Numeric" uniqueMembers="true" />
+           </Hierarchy>
+        </Dimension>
+
+        <DimensionUsage name="Origin Country" caption="Origin Country" source="Countries" foreignKey="reporter_iso" />
+        <DimensionUsage name="Destination Country" caption="Destination Country" source="Countries" foreignKey="partner_iso" />
+        <DimensionUsage name="Product" source="SITC4" foreignKey="commodity_code" />
+
+        <Measure name="Exports" column="export_usd" aggregator="sum" />
+        <Measure name="Imports" column="import_usd" aggregator="sum" />
+        <Measure name="Export_kg" column="export_kg" aggregator="sum" />
+        <Measure name="Import_kg" column="import_kg" aggregator="sum" />
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_b_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].CurrentMember,
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[SITC4].[All SITC4s])
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_c_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].[All Countriess],
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[SITC4].CurrentMember)
+            ]]>
+          </Formula>
+        </CalculatedMember>
+
+
+        <CalculatedMember dimension="Measures" name="cpy_rca_d_pop" visible="false">
+          <Formula>
+            <![CDATA[
+                (Measures.[Exports], [year].[year].CurrentMember,
+        [Origin Country].[Countries].[All Countriess],
+        [Destination Country].[Countries].[All Countriess],
+        [Product].[SITC4].[All SITC4s])
             ]]>
           </Formula>
         </CalculatedMember>
