@@ -52,7 +52,7 @@
     </Dimension>
     
     <Dimension name="SITC">
-        <Hierarchy hasAll="true" primaryKey="hs4" uniqueKeyLevelName="hs4_name">
+        <Hierarchy hasAll="true" primaryKey="sitc4" uniqueKeyLevelName="sitc4_name">
             <Table name="sitcrev2" schema="public" />
             <Level name="Chapter" column="chapter" nameColumn="chapter_name" uniqueMembers="true" />
             <Level name="SITC2" column="sitc2" nameColumn="sitc2_name" uniqueMembers="false" />
