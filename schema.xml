@@ -84,8 +84,8 @@
     </Cube>
     
     
-    <Cube name="1992_2016_hs_rev1992_yearly_data">
-        <Table name="1992_2016_hs_rev1992_yearly_data" schema="public" />
+    <Cube name="hs_rev1992_yearly_data">
+        <Table name="hs_rev1992_yearly_data" schema="public" />
 
         <Dimension name="year" type="TimeDimension">
            <Hierarchy hasAll="true" primaryKey="year">
@@ -152,8 +152,8 @@
     </Cube>
     
     
-    <Cube name="1996_2016_hs_rev1996_yearly_data">
-        <Table name="1996_2016_hs_rev1996_yearly_data" schema="public" />
+    <Cube name="hs_rev1996_yearly_data">
+        <Table name="hs_rev1996_yearly_data" schema="public" />
 
         <Dimension name="year" type="TimeDimension">
            <Hierarchy hasAll="true" primaryKey="year">
@@ -220,8 +220,8 @@
     </Cube>
     
     
-    <Cube name="2000_2016_sitc_rev2_yearly_data">
-        <Table name="2000_2016_sitc_rev2_yearly_data" schema="public" />
+    <Cube name="sitc_rev2_yearly_data">
+        <Table name="sitc_rev2_yearly_data" schema="public" />
 
         <Dimension name="year" type="TimeDimension">
            <Hierarchy hasAll="true" primaryKey="year">
@@ -288,8 +288,8 @@
     </Cube>
     
     
-    <Cube name="2002_2016_hs_rev2002_yearly_data">
-        <Table name="2002_2016_hs_rev2002_yearly_data" schema="public" />
+    <Cube name="hs_rev2002_yearly_data">
+        <Table name="hs_rev2002_yearly_data" schema="public" />
 
         <Dimension name="year" type="TimeDimension">
            <Hierarchy hasAll="true" primaryKey="year">
@@ -356,8 +356,8 @@
     </Cube>
     
     
-    <Cube name="2007_2016_hs_rev2007_yearly_data">
-        <Table name="2007_2016_hs_rev2007_yearly_data" schema="public" />
+    <Cube name="hs_rev2007_yearly_data">
+        <Table name="hs_rev2007_yearly_data" schema="public" />
 
         <Dimension name="year" type="TimeDimension">
            <Hierarchy hasAll="true" primaryKey="year">
@@ -425,8 +425,8 @@
     
     
     <!--
-    <Cube name="2012_2016_hs_rev2012_yearly_data">
-        <Table name="2012_2016_hs_rev2012_yearly_data" schema="public" />
+    <Cube name="hs_rev2012_yearly_data">
+        <Table name="hs_rev2012_yearly_data" schema="public" />
 
         <Dimension name="year" type="TimeDimension">
            <Hierarchy hasAll="true" primaryKey="year">
@@ -494,8 +494,8 @@
     -->
     
     
-    <Cube name="2015_2016_hs_rev1992_monthly_data">
-        <Table name="2015_2016_hs_rev1992_monthly_data" schema="public" />
+    <Cube name="hs_rev1992_monthly_data">
+        <Table name="hs_rev1992_monthly_data" schema="public" />
 
         <Dimension name="year" type="TimeDimension">
            <Hierarchy hasAll="true" primaryKey="year">
@@ -565,8 +565,8 @@
     </Cube>
     
     
-    <Cube name="2015_2016_hs_rev1996_monthly_data">
-        <Table name="2015_2016_hs_rev1996_monthly_data" schema="public" />
+    <Cube name="hs_rev1996_monthly_data">
+        <Table name="hs_rev1996_monthly_data" schema="public" />
 
         <Dimension name="year" type="TimeDimension">
            <Hierarchy hasAll="true" primaryKey="year">
@@ -636,8 +636,8 @@
     </Cube>
     
     
-    <Cube name="2015_2016_hs_rev2002_monthly_data">
-        <Table name="2015_2016_hs_rev2002_monthly_data" schema="public" />
+    <Cube name="hs_rev2002_monthly_data">
+        <Table name="hs_rev2002_monthly_data" schema="public" />
 
         <Dimension name="year" type="TimeDimension">
            <Hierarchy hasAll="true" primaryKey="year">
@@ -707,8 +707,8 @@
     </Cube>
     
     
-    <Cube name="2015_2016_hs_rev2007_monthly_data">
-        <Table name="2015_2016_hs_rev2007_monthly_data" schema="public" />
+    <Cube name="hs_rev2007_monthly_data">
+        <Table name="hs_rev2007_monthly_data" schema="public" />
 
         <Dimension name="year" type="TimeDimension">
            <Hierarchy hasAll="true" primaryKey="year">
@@ -779,8 +779,8 @@
     
     
     <!--
-    <Cube name="2015_2016_hs_rev2012_monthly_data">
-        <Table name="2015_2016_hs_rev2012_monthly_data" schema="public" />
+    <Cube name="hs_rev2012_monthly_data">
+        <Table name="hs_rev2012_monthly_data" schema="public" />
 
         <Dimension name="year" type="TimeDimension">
            <Hierarchy hasAll="true" primaryKey="year">
@@ -851,8 +851,8 @@
     -->
     
     
-    <Cube name="2015_2016_sitc_rev2_monthly_data">
-        <Table name="2015_2016_sitc_rev2_monthly_data" schema="public" />
+    <Cube name="sitc_rev2_monthly_data">
+        <Table name="sitc_rev2_monthly_data" schema="public" />
 
         <Dimension name="year" type="TimeDimension">
            <Hierarchy hasAll="true" primaryKey="year">
